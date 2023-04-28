@@ -3,6 +3,7 @@ import getCurrencyInfo from '../../services/currencyAPI';
 export const ADD_EMAIL = 'ADD_EMAIL';
 export const RECEIVE_CURRENCIES = 'RECEIVE_CURRENCIES';
 export const RECEIVE_EXPENSES = 'RECEIVE_EXPENSES';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export const addEmail = (email) => ({
   type: ADD_EMAIL,
@@ -25,6 +26,12 @@ export const receiveExpenses = (expense, total) => ({
   type: RECEIVE_EXPENSES,
   expense,
   total,
+});
+
+export const deleteExpenseTarget = (id, value) => ({
+  type: DELETE_EXPENSE,
+  id,
+  value,
 });
 
 export const getExpenses = (formInfo) => async (dispatch) => {
