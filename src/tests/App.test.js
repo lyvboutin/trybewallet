@@ -126,9 +126,16 @@ describe('Testa a página da carteira', () => {
     await waitFor(() => {
       const expenseTableValue = screen.getByRole('cell', { name: /50/i });
       const expenseTableDescription = screen.getByRole('cell', { name: /Paris/i });
+      const deleteBtn = screen.getByRole('button', { name: /delete/i });
 
+      expect(deleteBtn).toBeInTheDocument();
       expect(expenseTableValue).toBeInTheDocument();
       expect(expenseTableDescription).toBeInTheDocument();
+
+      userEvent.click(deleteBtn);
+
+      expect(expenseTableValue).not.toBeInTheDocument();
+      expect(expenseTableDescription).not.toBeInTheDocument();
     });
   });
 });
